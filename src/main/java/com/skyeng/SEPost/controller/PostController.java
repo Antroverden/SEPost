@@ -31,12 +31,10 @@ public class PostController {
         return postService.register(postItemDtoWithStatus);
     }
 
-    @PatchMapping("/{id}")
+    @PutMapping
     @Operation(summary = "Изменение статуса почтового отправления")
-    public PostItemDtoWithStatus updateStatus(@PathVariable Long id,
-                                    @RequestParam Status status,
-                                    @RequestParam(required = false) Integer postOfficeIndex) {
-        return postService.updateStatus(id, status, postOfficeIndex);
+    public PostItemDtoWithStatus updateStatus(@RequestBody PostItemDtoWithStatus postItemDtoWithStatus) {
+        return postService.updateStatus(postItemDtoWithStatus);
     }
 
     @GetMapping("/{id}")

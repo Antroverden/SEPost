@@ -20,7 +20,7 @@ public class Event {
     @ManyToOne
     @JoinColumn(name="post_item_id")
     PostItem postItem;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name="post_office_id")
     PostOffice postOffice;
     @Enumerated(EnumType.STRING)

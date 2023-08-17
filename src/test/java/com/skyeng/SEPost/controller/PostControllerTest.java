@@ -61,14 +61,14 @@ public class PostControllerTest {
     @Test
     void updateStatusTest() throws Exception {
         PostOfficeDto postOfficeDto = new PostOfficeDto(111111, "Post Office 111111", "Moscow");
-        PostItemDtoWithStatus updatedPostItemDtoWithStastus = new PostItemDtoWithStatus(1L, LETTER,
+        PostItemDtoWithStatus updatedPostItemDtoWithStatus = new PostItemDtoWithStatus(1L, LETTER,
                 111222, "address", "name", ARRIVED, postOfficeDto);
-        when(postService.updateStatus(1L, ARRIVED, 111111))
-                .thenReturn(updatedPostItemDtoWithStastus);
+        when(postService.updateStatus(updatedPostItemDtoWithStatus))
+                .thenReturn(updatedPostItemDtoWithStatus);
 
-        mockMvc.perform(patch("/api/v1/post/1")
-                .param("status", String.valueOf(ARRIVED))
-                .param("postOfficeIndex", "111111"))
+        mockMvc.perform(put("/api/v1/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(updatedPostItemDtoWithStatus)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(1L))
                 .andExpect(jsonPath("$.status").value(String.valueOf(ARRIVED)));

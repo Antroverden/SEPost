@@ -16,4 +16,6 @@ public interface PostItemMapper {
     PostItemDtoWithStatus toPostItemDtoWithStatus(PostItem postItem);
 
     PostItem toPostItem(PostItemDtoWithStatus postItemDtoWithStatus);
+
+    void updatePostItem(@MappingTarget PostItem postItem, PostItemDtoWithStatus postItemDtoWithStatus);
 }
