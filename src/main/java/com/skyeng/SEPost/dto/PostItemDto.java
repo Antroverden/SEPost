@@ -1,6 +1,5 @@
 package com.skyeng.SEPost.dto;
 
-import com.skyeng.SEPost.entity.Event;
 import com.skyeng.SEPost.entity.PostItem.Type;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
