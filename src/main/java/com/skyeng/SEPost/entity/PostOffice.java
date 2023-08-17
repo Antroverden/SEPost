@@ -15,7 +15,7 @@ import lombok.experimental.FieldDefaults;
 @Table(name = "post_offices")
 public class PostOffice {
     @Id
-    Long index;
+    Integer index;
     String title;
     String address;
 }

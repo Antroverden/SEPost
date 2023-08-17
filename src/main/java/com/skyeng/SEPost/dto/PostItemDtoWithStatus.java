@@ -6,16 +6,20 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import static com.skyeng.SEPost.entity.Event.*;
+
 @Builder
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostItemDtoWithStatus {
-    @NotBlank
+
     Long id;
     Type type;
-    RecipientDto recipient;
-    Event.Status status;
+    Integer recipientIndex;
+    String recipientAddress;
+    String recipientName;
+    Status status;
     PostOfficeDto postOfficeDto;
 }

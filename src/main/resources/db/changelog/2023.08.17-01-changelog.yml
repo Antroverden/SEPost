@@ -9,7 +9,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: index
-                  type: bigint
+                  type: integer
                   autoIncrement: false
                   constraints:
                     nullable: false
@@ -24,3 +24,27 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+        - insert:
+            tableName: post_offices
+            columns:
+              - column:
+                  name: index
+                  value: "111111"
+              - column:
+                  name: title
+                  value: "Post Office 111111"
+              - column:
+                  name: address
+                  value: "Moscow"
+        - insert:
+            tableName: post_offices
+            columns:
+              - column:
+                  name: index
+                  value: "222222"
+              - column:
+                  name: title
+                  value: "Post Office 222222"
+              - column:
+                  name: address
+                  value: "St.Petersburg"

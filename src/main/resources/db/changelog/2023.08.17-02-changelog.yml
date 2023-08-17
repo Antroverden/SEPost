@@ -20,17 +20,17 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: recipientIndex
+                  name: recipient_index
                   type: integer
                   constraints:
                     nullable: false
               - column:
-                  name: recipientAddress
+                  name: recipient_address
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: recipientName
+                  name: recipient_name
                   type: varchar(255)
                   constraints:
                     nullable: false

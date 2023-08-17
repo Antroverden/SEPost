@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface PostOfficeMapper {
 
-    PostOffice toPostoffice(PostOfficeDto dto);
-
     PostOfficeDto toPostofficeDto(PostOffice postoffice);
+
+    PostOffice toPostoffice(PostOfficeDto dto);
 }

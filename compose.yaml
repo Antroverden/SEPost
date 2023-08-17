@@ -1,9 +1,10 @@
 services:
   postgres:
-    image: 'postgres:latest'
+    container_name: postgres-SEPost
+    image: "postgres:14"
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_USER: antro
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: antro
     ports:
-      - '5432'
+      - "5432:5432"

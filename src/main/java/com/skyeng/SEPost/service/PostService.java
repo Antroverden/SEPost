@@ -1,7 +1,6 @@
 package com.skyeng.SEPost.service;
 
 import com.skyeng.SEPost.dto.EventDto;
-import com.skyeng.SEPost.dto.PostItemDto;
 import com.skyeng.SEPost.dto.PostItemDtoWithStatus;
 import com.skyeng.SEPost.dto.PostOfficeDto;
 import com.skyeng.SEPost.entity.Event;
@@ -35,29 +34,29 @@ public class PostService {
     PostOfficeRepository postOfficeRepository;
     PostOfficeMapper postOfficeMapper;
 
-    public PostItemDto register(PostItemDto postItemDto) {
-        PostItem postItem = postItemMapper.toPostItem(postItemDto);
+    public PostItemDtoWithStatus register(PostItemDtoWithStatus postItemDtoWithStatus) {
+        PostItem postItem = postItemMapper.toPostItem(postItemDtoWithStatus);
         PostItem saved = postItemRepository.save(postItem);
-        Event newEvent = Event.builder().status(Status.REGISTERED).postItem(postItem)
+        PostOffice postOffice = postOfficeMapper.toPostoffice(postItemDtoWithStatus.getPostOfficeDto());
+        Event newEvent = Event.builder().status(Status.REGISTERED).postItem(postItem).postOffice(postOffice)
                 .happenAt(LocalDateTime.now()).build();
         eventRepository.save(newEvent);
-        return postItemMapper.toPostItemDto(saved);
+        postItemDtoWithStatus.setId(saved.getId());
+        return postItemDtoWithStatus;
     }
 
-    public PostItemDto updateStatus(PostItemDto postItemDto, Status status, Long postOfficeIndex) {
-        PostItem postItem = postItemRepository.findById(postItemDto.getId()).orElseThrow(
+    public PostItemDtoWithStatus updateStatus(Long id, Status status, Integer postOfficeIndex) {
+        PostItem postItem = postItemRepository.findById(id).orElseThrow(
                 () -> new NotFoundException("Почтовое отправление не найдено"));
-        postItemMapper.updatePostItem(postItem, postItemDto);
         PostOffice postOffice = null;
         if (postOfficeIndex != null) {
             postOffice = postOfficeRepository.findById(postOfficeIndex).orElseThrow(
                     () -> new NotFoundException("Почтовое отделение не найдено"));
         }
-        postItemRepository.save(postItem);
         Event newEvent = Event.builder().status(status).postItem(postItem).postOffice(postOffice)
                 .happenAt(LocalDateTime.now()).build();
         eventRepository.save(newEvent);
-        return postItemMapper.toPostItemDto(postItem);
+        return getPostItemStatus(id);
     }
 
     public PostItemDtoWithStatus getPostItemStatus(Long id) {
@@ -71,7 +70,7 @@ public class PostService {
         return postItemDtoWithStatus;
     }
 
-    public List<EventDto> getAll(Long id) {
+    public List<EventDto> getHistory(Long id) {
         List<Event> events = eventRepository.findAllByPostItem_Id(id);
         return eventMapper.toEventDtos(events);
     }

@@ -24,7 +24,7 @@ databaseChangeLog:
                   type: bigint
               - column:
                   name: post_office_id
-                  type: bigint
+                  type: integer
               - column:
                   name: status
                   type: varchar(10)

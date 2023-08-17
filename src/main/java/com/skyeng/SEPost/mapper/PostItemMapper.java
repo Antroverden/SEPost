@@ -6,8 +6,6 @@ import com.skyeng.SEPost.entity.PostItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-import java.util.List;
-
 @Mapper(componentModel = "spring")
 public interface PostItemMapper {
 
@@ -17,7 +15,5 @@ public interface PostItemMapper {
 
     PostItemDtoWithStatus toPostItemDtoWithStatus(PostItem postItem);
 
-    List<PostItemDto> toPostItemDtos(List<PostItem> postItems);
-
-    void updatePostItem(@MappingTarget PostItem postItem, PostItemDto dto);
+    PostItem toPostItem(PostItemDtoWithStatus postItemDtoWithStatus);
 }

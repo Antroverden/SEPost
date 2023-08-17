@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgres-gts:5432/antro
+    url: jdbc:postgresql://localhost:5432/antro
     username: antro
     password: qwerty
   jpa:

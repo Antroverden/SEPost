@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 public class PostOfficeDto {
 
-    Long index;
+    Integer index;
     String title;
     String address;
 }

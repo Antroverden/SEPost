@@ -27,16 +27,16 @@ public class PostController {
     @PostMapping
     @Operation(summary = "Регистрация почтового отправления")
     @ResponseStatus(HttpStatus.CREATED)
-    public PostItemDto register(@RequestBody PostItemDto postItemDto) {
-        return postService.register(postItemDto);
+    public PostItemDtoWithStatus register(@RequestBody PostItemDtoWithStatus postItemDtoWithStatus) {
+        return postService.register(postItemDtoWithStatus);
     }
 
-    @PatchMapping
+    @PatchMapping("/{id}")
     @Operation(summary = "Изменение статуса почтового отправления")
-    public PostItemDto updateStatus(@RequestBody PostItemDto postItemDto,
-                              @RequestParam Status status,
-                              @RequestParam(required = false) Long postOfficeIndex) {
-        return postService.updateStatus(postItemDto, status, postOfficeIndex);
+    public PostItemDtoWithStatus updateStatus(@PathVariable Long id,
+                                    @RequestParam Status status,
+                                    @RequestParam(required = false) Integer postOfficeIndex) {
+        return postService.updateStatus(id, status, postOfficeIndex);
     }
 
     @GetMapping("/{id}")
@@ -48,6 +48,6 @@ public class PostController {
     @GetMapping("/{id}/history")
     @Operation(summary = "Просмотр полной истории движения почтового отправления")
     public List<EventDto> getHistory(@PathVariable Long id) {
-        return postService.getAll(id);
+        return postService.getHistory(id);
     }
 }

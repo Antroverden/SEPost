@@ -17,10 +17,10 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="post_item_id")
     PostItem postItem;
-    @OneToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="post_office_id")
     PostOffice postOffice;
     @Enumerated(EnumType.STRING)
