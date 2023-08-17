@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      author: antroverden
+      id: 202308173
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: post_items
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: type
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recipient_id
+                  type: bigint
+        - addForeignKeyConstraint:
+            baseColumnNames: recipient_id
+            baseTableName: post_items
+            constraintName: fk_post_items_on_recipient
+            referencedColumnNames: id
+            referencedTableName: recipients

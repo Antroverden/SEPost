@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres-gts:5432/antro
+    username: antro
+    password: qwerty
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: /db/changelog/changelog.yml
+    enabled: true

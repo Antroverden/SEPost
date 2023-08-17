@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      author: antroverden
+      id: 202308172
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: recipients
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: index
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: true

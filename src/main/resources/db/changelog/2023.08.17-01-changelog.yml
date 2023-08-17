@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      author: antroverden
+      id: 202308171
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: post_offices
+            columns:
+              - column:
+                  name: index
+                  type: bigint
+                  autoIncrement: false
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: title
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: address
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
