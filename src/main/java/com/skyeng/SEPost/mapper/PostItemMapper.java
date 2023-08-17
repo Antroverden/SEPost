@@ -9,8 +9,6 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface PostItemMapper {
 
-    PostItem toPostItem(PostItemDto dto);
-
     PostItemDto toPostItemDto(PostItem postItem);
 
     PostItemDtoWithStatus toPostItemDtoWithStatus(PostItem postItem);

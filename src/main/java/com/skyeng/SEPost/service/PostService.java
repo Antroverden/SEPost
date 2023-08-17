@@ -13,7 +13,6 @@ import com.skyeng.SEPost.mapper.PostItemMapper;
 import com.skyeng.SEPost.mapper.PostOfficeMapper;
 import com.skyeng.SEPost.repository.EventRepository;
 import com.skyeng.SEPost.repository.PostItemRepository;
-import com.skyeng.SEPost.repository.PostOfficeRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

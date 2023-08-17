@@ -1,9 +1,7 @@
 package com.skyeng.SEPost.controller;
 
 import com.skyeng.SEPost.dto.EventDto;
-import com.skyeng.SEPost.dto.PostItemDto;
 import com.skyeng.SEPost.dto.PostItemDtoWithStatus;
-import com.skyeng.SEPost.entity.Event.Status;
 import com.skyeng.SEPost.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -1,12 +1,10 @@
 package com.skyeng.SEPost.dto;
 
-import com.skyeng.SEPost.entity.Event;
 import com.skyeng.SEPost.entity.PostItem.Type;
-import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import static com.skyeng.SEPost.entity.Event.*;
+import static com.skyeng.SEPost.entity.Event.Status;
 
 @Builder
 @Data
