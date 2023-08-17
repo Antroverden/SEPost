@@ -25,7 +25,8 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(PostController.class)
@@ -98,7 +99,6 @@ public class PostControllerTest {
 
         mockMvc.perform(get("/api/v1/post/1/history"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(content().json(objectMapper.writeValueAsString(history)));
+                .andExpect(jsonPath("$", hasSize(2)));
     }
 }

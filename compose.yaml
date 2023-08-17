@@ -1,6 +1,6 @@
 services:
   postgres:
-    container_name: postgres-SEPost
+    container_name: postgres-sepost
     image: "postgres:14"
     environment:
       POSTGRES_USER: antro
