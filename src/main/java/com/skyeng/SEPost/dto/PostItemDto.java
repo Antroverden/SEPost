@@ -14,5 +14,7 @@ public class PostItemDto {
     @NotBlank
     Long id;
     Type type;
-    RecipientDto recipient;
+    Integer recipientIndex;
+    String recipientAddress;
+    String recipientName;
 }

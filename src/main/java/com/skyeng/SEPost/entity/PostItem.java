@@ -19,8 +19,9 @@ public class PostItem {
     Long id;
     @Enumerated(EnumType.STRING)
     Type type;
-    @OneToOne
-    Recipient recipient;
+    Integer recipientIndex;
+    String recipientAddress;
+    String recipientName;
 
     public enum Type {
         LETTER, PACKAGE, PARCEL, POSTCARD

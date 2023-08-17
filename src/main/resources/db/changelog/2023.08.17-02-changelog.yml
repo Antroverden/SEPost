@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             schemaName: public
-            tableName: recipients
+            tableName: post_items
             columns:
               - column:
                   name: id
@@ -15,22 +15,22 @@ databaseChangeLog:
                     nullable: false
                     unique: true
               - column:
-                  name: index
+                  name: type
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recipientIndex
                   type: integer
                   constraints:
                     nullable: false
               - column:
-                  name: address
+                  name: recipientAddress
                   type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: name
+                  name: recipientName
                   type: varchar(255)
                   constraints:
                     nullable: false
-              - column:
-                  name: user_id
-                  type: bigint
-                  constraints:
-                    nullable: true
