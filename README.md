@@ -27,6 +27,9 @@ mvn clean package
 http://localhost:8080/swagger-ui/index.html
 ```
 
+Также примеры HTTP-запросов к контроллерам можно увидеть по ссылке онлайн:
+https://antroverden.github.io/swagger-template
+
 Скриншот тестового покрытия:
 ![TestCoverage.png](TestCoverage.png)
 
